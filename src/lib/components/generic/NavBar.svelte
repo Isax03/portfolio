@@ -66,23 +66,6 @@
             <Tooltip.Provider>
                 <Tooltip.Root>
                     <Tooltip.Trigger>
-                        <Button
-                            variant="outline"
-                            size="icon"
-                            href="https://github.com/Isax03/isaiatonini"
-                            target="_blank"
-                        >
-                            <Github />
-                        </Button>
-                    </Tooltip.Trigger>
-                    <Tooltip.Content class="z-[99]">
-                        <p>GitHub</p>
-                    </Tooltip.Content>
-                </Tooltip.Root>
-            </Tooltip.Provider>
-            <Tooltip.Provider>
-                <Tooltip.Root>
-                    <Tooltip.Trigger>
                         <DarkMode />
                     </Tooltip.Trigger>
                     <Tooltip.Content class="z-[99]">
