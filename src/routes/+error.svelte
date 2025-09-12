@@ -9,7 +9,7 @@
 </svelte:head>
 
 <div class="h-full w-full flex flex-col items-center justify-center gap-6 text-center p-4">
-    <h1 class="text-4xl font-bold">Oops! 🤔</h1>
+    <h1 class="text-4xl font-bold text-accent">Oops!😅</h1>
     
     <p class="text-xl text-muted-foreground max-w-[600px]">
         {#if page.status === 404}
@@ -22,7 +22,7 @@
         {/if}
     </p>
 
-    <p class="text-sm text-muted-foreground mb-4">
+    <p class="text-sm text-accent/60 mb-4 italic">
         Error {page.status}
     </p>
 
