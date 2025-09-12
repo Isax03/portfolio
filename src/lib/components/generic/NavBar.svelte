@@ -1,11 +1,17 @@
 <script lang="ts">
     import { page } from "$app/state";
-    import Button, {
-        buttonVariants,
-    } from "$lib/components/ui/button/button.svelte";
+    import { buttonVariants } from "$lib/components/ui/button/button.svelte";
     import * as Sheet from "$lib/components/ui/sheet";
     import * as Tooltip from "$lib/components/ui/tooltip/index";
-    import { BriefcaseBusiness, CodeXml, FileUser, FolderOpen, Github, GraduationCap, Menu } from "@lucide/svelte";
+    import {
+        BriefcaseBusiness,
+        CodeXml,
+        FileUser,
+        FolderOpen,
+        GraduationCap,
+        House,
+        Menu,
+    } from "@lucide/svelte";
     import { mode } from "mode-watcher";
     import DarkMode from "./DarkMode.svelte";
 
@@ -42,7 +48,7 @@
             <span class="font-bold text-lg">Isaia Tonini</span>
         </a>
 
-        <div class="items-center justify-between hidden md:flex md:w-auto">
+        <div class="items-center justify-between hidden lg:flex lg:w-auto">
             <ul class="flex flex-row space-x-8">
                 {#each navItems as item}
                     <li>
@@ -54,7 +60,7 @@
                                 ? 'text-accent font-bold underline underline-offset-6'
                                 : 'text-muted-foreground hover:text-primary'}"
                         >
-							<item.icon class="size-4 text-inherit" />
+                            <item.icon class="size-4 text-inherit" />
                             {item.label}
                         </a>
                     </li>
@@ -78,7 +84,7 @@
                 </Tooltip.Root>
             </Tooltip.Provider>
 
-            <div class="block md:hidden">
+            <div class="block lg:hidden">
                 <Sheet.Root>
                     <Sheet.Trigger
                         class={buttonVariants({
@@ -89,23 +95,38 @@
                         <Menu />
                     </Sheet.Trigger>
                     <Sheet.Content side="right" class="w-72 z-100">
-                        <Sheet.Header>
-                            <Sheet.Title>Menu</Sheet.Title>
-                        </Sheet.Header>
-                        <div class="flex flex-col gap-4 mt-4 items-start">
+                        <Sheet.Header/>
+                        <div class="flex flex-col gap-4 mx-2 items-start">
+                            <Sheet.Close
+                                class={buttonVariants({ variant: "link" })}
+                            >
+                                <a
+                                    href="/"
+                                    class="flex gap-3 text-lg items-center transition-colors {isActive(
+                                        "/"
+                                    )
+                                        ? 'text-accent font-bold'
+                                        : 'text-muted-foreground hover:text-primary'}"
+                                >
+                                    <House class="size-5 text-inherit" />
+                                    Home
+                                </a>
+                            </Sheet.Close>
                             {#each navItems as item}
                                 <Sheet.Close
                                     class={buttonVariants({ variant: "link" })}
                                 >
                                     <a
                                         href={item.href}
-                                        class="flex gap-2 items-center py-2 transition-colors {isActive(
+                                        class="flex gap-3 text-lg items-center transition-colors {isActive(
                                             item.href
                                         )
-                                            ? 'text-accent font-bold underline underline-offset-6'
+                                            ? 'text-accent font-bold'
                                             : 'text-muted-foreground hover:text-primary'}"
                                     >
-										<item.icon class="size-4 text-inherit" />
+                                        <item.icon
+                                            class="size-5 text-inherit"
+                                        />
                                         {item.label}
                                     </a>
                                 </Sheet.Close>

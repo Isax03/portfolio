@@ -6,7 +6,7 @@
     let isIta = $state(false);
 </script>
 
-<div class="flex flex-col gap-2 items-center">
+<div class="flex flex-col gap-2 items-center py-5">
 	<h1 class="text-4xl font-bold">Resume</h1>
 	<div class="flex gap-2 items-center mt-4">
 		<span class="text-lg {!isIta ? 'text-primary' : 'text-muted-foreground'}">English</span>
