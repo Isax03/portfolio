@@ -38,13 +38,22 @@
 >
     <div class="w-full flex items-center justify-between mx-auto h-max px-4">
         <a href="/" class="flex items-center w-max">
-            <img
-                src={mode.current === "dark"
-                    ? "/favicon-dark.svg"
-                    : "/favicon-light.svg"}
-                alt="Logo"
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 645.35 800"
+                fill={mode.current === "dark" ? "white" : "black"}
                 class="size-8 mr-2"
-            />
+            >
+                <polygon
+                    points="645.35 275.36 513.92 323.94 339.24 388.51 188.55 444.2 0 513.89 107.92 390.7 107.92 390.68 236.29 363.15 371.22 334.18 535.89 298.85 645.35 275.36"
+                />
+                <polygon
+                    points="450.18 0 256.29 329.18 139.92 354.15 450.18 0"
+                />
+                <polygon
+                    points="475.5 367.8 96.87 800 316.91 426.42 316.91 426.4 475.5 367.8"
+                />
+            </svg>
             <span class="font-bold text-lg">Isaia Tonini</span>
         </a>
 
@@ -69,20 +78,7 @@
         </div>
 
         <div class="flex items-center justify-end gap-3">
-            <Tooltip.Provider>
-                <Tooltip.Root>
-                    <Tooltip.Trigger>
-                        <DarkMode />
-                    </Tooltip.Trigger>
-                    <Tooltip.Content class="z-[99]">
-                        <p>
-                            {mode.current === "dark"
-                                ? "Light Mode"
-                                : "Dark Mode"}
-                        </p>
-                    </Tooltip.Content>
-                </Tooltip.Root>
-            </Tooltip.Provider>
+            <DarkMode />
 
             <div class="block lg:hidden">
                 <Sheet.Root>
@@ -95,7 +91,7 @@
                         <Menu />
                     </Sheet.Trigger>
                     <Sheet.Content side="right" class="w-72 z-100">
-                        <Sheet.Header/>
+                        <Sheet.Header />
                         <div class="flex flex-col gap-4 mx-2 items-start">
                             <Sheet.Close
                                 class={buttonVariants({ variant: "link" })}
@@ -103,7 +99,7 @@
                                 <a
                                     href="/"
                                     class="flex gap-3 text-lg items-center transition-colors {isActive(
-                                        "/"
+                                        '/'
                                     )
                                         ? 'text-accent font-bold'
                                         : 'text-muted-foreground hover:text-primary'}"

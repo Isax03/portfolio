@@ -1,32 +1,30 @@
 <script lang="ts">
     import Badge from "$lib/components/ui/badge/badge.svelte";
     import * as Card from "$lib/components/ui/card";
-    import * as Tooltip from "$lib/components/ui/tooltip";
-    import { Building2, Calendar, Clock, MapPin } from "@lucide/svelte";
-    import { buttonVariants } from "../ui/button/button.svelte";
+    import { University, Calendar, Clock, MapPin } from "@lucide/svelte";
     import Separator from "../ui/separator/separator.svelte";
 
-    export interface ExperienceCardProps {
-        title: string;
-        company: string;
+    export interface EducationCardProps {
+        institution: string;
+        degree: string;
         location: string;
         startDate: Date;
         endDate?: Date | null;
-        summary: string;
-        companyPic?: string;
-        skills?: string[];
+        institutionPic?: string;
+        institutionPicClass?: string;
+        summary?: string;
     }
 
     let {
-        title,
-        company,
+        institution,
+        degree,
         location,
         startDate,
         endDate,
-        summary,
-        companyPic,
-        skills
-    }: ExperienceCardProps = $props();
+        institutionPic,
+        institutionPicClass,
+        summary
+    }: EducationCardProps = $props();
 
     // Format date for display
     function formatDate(date: Date): string {
@@ -63,26 +61,26 @@
 <Card.Root class="w-full lg:max-w-lg">
     <Card.Header>
         <div class="flex gap-4">
-            {#if companyPic}
-                <div class="flex-shrink-0">
+            {#if institutionPic}
+                <div class="flex-shrink-0 h-max rounded-lg shadow-[0_0_15px_var(--accent)]">
                     <img
-                        src={companyPic}
-                        alt="{company} logo"
-                        class="size-12 lg:size-16 rounded-lg object-contain shadow-[0_0_15px_var(--accent)]"
+                        src={institutionPic}
+                        alt="{institution} logo"
+                        class="size-12 lg:size-16 rounded-lg object-contain {institutionPicClass}"
                     />
                 </div>
             {/if}
 
             <div class="flex flex-col gap-3 flex-1">
-                <Card.Title class="text-lg font-bold">{title}</Card.Title>
+                <Card.Title class="text-lg font-bold">{degree}</Card.Title>
 
                 <div class="flex flex-wrap gap-2">
                     <Badge
                         variant="outline"
                         class="flex items-center gap-1.5 px-3 py-1"
                     >
-                        <Building2 class="size-3 text-accent" />
-                        {company}
+                        <University class="size-3 text-accent" />
+                        {institution}
                     </Badge>
 
                     <Badge
@@ -116,46 +114,10 @@
             </div>
         </div>
     </Card.Header>
-    <Separator class="-my-3 !w-[90%] self-center !h-[0.5px]" />
-    <Card.Content>
-        <p class="text-sm text-muted-foreground">{summary}</p>
-    </Card.Content>
-    {#if skills && skills.length > 0}
+    {#if summary}
         <Separator class="-my-3 !w-[90%] self-center !h-[0.5px]" />
-        <Card.Footer class="flex flex-wrap gap-2">
-            {#each skills as skill}
-                <Tooltip.Provider>
-                    <Tooltip.Root>
-                        <Tooltip.Trigger>
-                            <div
-                                class={buttonVariants({
-                                    variant: "outline",
-                                    size: "icon",
-                                    class: "dark:hover:bg-input/30 hover:bg-background",
-                                })}
-                            >
-                                {#if skill.startsWith('!static-')}
-                                    <img
-                                        src="/icons/{skill.replace('!static-', '')}.svg"
-                                        alt={skill.replace('!static-', '')}
-                                        class="size-6 rounded-[4px]"
-                                    />
-                                {:else}
-                                    <img
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{skill}/{skill}-original.svg"
-                                        alt={skill}
-                                        class="size-6 rounded-[4px]"
-                                    />
-                                {/if}
-                            </div>
-                        </Tooltip.Trigger>
-
-                        <Tooltip.Content class="z-[99]">
-                            <p class="capitalize">{skill.startsWith('!static-') ? skill.replace('!static-', '') : skill}</p>
-                        </Tooltip.Content>
-                    </Tooltip.Root>
-                </Tooltip.Provider>
-            {/each}
-        </Card.Footer>
+        <Card.Content>
+            <p class="text-sm text-muted-foreground">{@html summary}</p>
+        </Card.Content>
     {/if}
 </Card.Root>

@@ -1,8 +1,8 @@
 <script lang="ts">
-    import ExperienceCard from "$lib/components/portfolio/ExperienceCard.svelte";
+    import ExperienceCard, { type ExperienceCardProps } from "$lib/components/portfolio/ExperienceCard.svelte";
     import { Squircle } from "@lucide/svelte";
 
-    const experiences = [
+    const experiences: ExperienceCardProps[] = [
         {
             title: "Full Stack Developer",
             company: "Würth Italia S.L.R.",
@@ -11,7 +11,7 @@
             summary:
                 "Development of internal web applications and software solutions for other departments within the company",
             companyPic: "/companies/wurth.png",
-            skills: ["angular", "tailwindcss", "javascript", "typescript", "java", "spring", "oracle", "!static-flyway", "gitlab", "argocd", "docker", "kubernetes"]
+            skills: ["angular", "tailwindcss", "javascript", "typescript", "java", "spring", "oracle", "!static-flyway", "gitlab", "docker", "kubernetes", "argocd", "rancher"]
         },
         {
             title: "Software Engineer Intern",
