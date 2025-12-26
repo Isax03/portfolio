@@ -138,13 +138,13 @@
                                     <img
                                         src="/icons/{skill.replace('!static-', '')}.svg"
                                         alt={skill.replace('!static-', '')}
-                                        class="size-6 rounded-[4px]"
+                                        class="size-6 rounded-lg"
                                     />
                                 {:else}
                                     <img
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{skill}/{skill}-original.svg"
                                         alt={skill}
-                                        class="size-6 rounded-[4px]"
+                                        class="size-6 rounded-lg"
                                     />
                                 {/if}
                             </div>

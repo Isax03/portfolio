@@ -35,10 +35,10 @@
     </p>
 
     <div
-        class="flex flex-col w-full lg:max-w-[1100px] lg:pb-10 gap-5 lg:gap-10 relative"
+        class="flex flex-col w-full lg:max-w-275 lg:pb-10 gap-5 lg:gap-10 relative"
     >
         <div
-            class="w-[0.5px] hidden lg:flex top-0 bottom-0 py-[50px] bg-neutral-700 absolute left-1/2 transform -translate-x-1/2 rounded"
+            class="w-[0.5px] hidden lg:flex top-0 bottom-0 py-12.5 bg-neutral-700 absolute left-1/2 transform -translate-x-1/2 rounded"
         ></div>
 
         {#each experiences as experience, i}
@@ -58,7 +58,7 @@
 					institutionPicClass={experience.institutionPicClass}
                 />
                 <div
-                    class="p-[26px] z-20 bg-background relative hidden lg:block"
+                    class="p-6.5 z-20 bg-background relative hidden lg:block"
                 >
                     <Squircle class="size-6 text-accent stroke-[1.5px]" />
                     <Squircle

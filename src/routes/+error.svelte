@@ -11,7 +11,7 @@
 <div class="h-full w-full flex flex-col items-center justify-center gap-6 text-center p-4">
     <h1 class="text-4xl font-bold text-accent">Oops!😅</h1>
     
-    <p class="text-xl text-muted-foreground max-w-[600px]">
+    <p class="text-xl text-muted-foreground max-w-150">
         {#if page.status === 404}
             Looks like you got lost! <br /><br />
             This page doesn't exist, but don't worry<br/>

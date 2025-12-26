@@ -1,38 +1,35 @@
-# sv
+# Portfolio 🚀
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+My personal portfolio website built with SvelteKit, TailwindCSS, and deployed on Vercel.
 
-## Creating a project
+## Tech Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Framework:** SvelteKit with Svelte 5
+- **Styling:** TailwindCSS 4
+- **UI Components:** Bits UI
+- **Icons:** Lucide
+- **Deployment:** Vercel
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Getting Started
 
-# create a new project in my-app
-npx sv create my-app
+```bash
+# Install dependencies
+pnpm install
+
+# Start dev server
+pnpm dev
+
+# Build for production
+pnpm build
 ```
 
-## Developing
+## 📁 Structure
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- `/experience` — Work experience
+- `/education` — Academic background
+- `/projects` — Featured projects
+- `/resume` — Downloadable CV
 
-```sh
-npm run dev
+---
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Made with ❤️ by Isaia Tonini

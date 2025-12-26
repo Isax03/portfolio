@@ -5,7 +5,6 @@
     import * as Tooltip from "$lib/components/ui/tooltip/index";
     import {
         BriefcaseBusiness,
-        CodeXml,
         FileUser,
         FolderOpen,
         GraduationCap,
@@ -18,7 +17,6 @@
     const navItems = [
         { href: "/education", label: "Education", icon: GraduationCap },
         { href: "/experience", label: "Experience", icon: BriefcaseBusiness },
-        { href: "/skills", label: "Skills", icon: CodeXml },
         { href: "/projects", label: "Projects", icon: FolderOpen },
         { href: "/resume", label: "Resume", icon: FileUser },
     ];
