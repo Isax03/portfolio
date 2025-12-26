@@ -62,7 +62,7 @@
     <Card.Header>
         <div class="flex gap-4">
             {#if institutionPic}
-                <div class="flex-shrink-0 h-max rounded-lg shadow-[0_0_15px_var(--accent)]">
+                <div class="shrink-0 h-max rounded-lg shadow-[0_0_15px_var(--accent)]">
                     <img
                         src={institutionPic}
                         alt="{institution} logo"
@@ -92,7 +92,7 @@
                     </Badge>
                 </div>
 
-                <Separator class="!h-[0.5px]" />
+                <Separator class="h-[0.5px]!" />
 
                 <div class="space-y-1">
                     <div
@@ -115,7 +115,7 @@
         </div>
     </Card.Header>
     {#if summary}
-        <Separator class="-my-3 !w-[90%] self-center !h-[0.5px]" />
+        <Separator class="-my-3 w-[90%]! self-center h-[0.5px]!" />
         <Card.Content>
             <p class="text-sm text-muted-foreground">{@html summary}</p>
         </Card.Content>

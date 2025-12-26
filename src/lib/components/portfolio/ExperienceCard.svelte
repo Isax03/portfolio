@@ -64,7 +64,7 @@
     <Card.Header>
         <div class="flex gap-4">
             {#if companyPic}
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <img
                         src={companyPic}
                         alt="{company} logo"
@@ -94,7 +94,7 @@
                     </Badge>
                 </div>
 
-                <Separator class="!h-[0.5px]" />
+                <Separator class="h-[0.5px]!" />
 
                 <div class="space-y-1">
                     <div
@@ -116,12 +116,12 @@
             </div>
         </div>
     </Card.Header>
-    <Separator class="-my-3 !w-[90%] self-center !h-[0.5px]" />
+    <Separator class="-my-3 w-[90%]! self-center h-[0.5px]!" />
     <Card.Content>
         <p class="text-sm text-muted-foreground">{summary}</p>
     </Card.Content>
     {#if skills && skills.length > 0}
-        <Separator class="-my-3 !w-[90%] self-center !h-[0.5px]" />
+        <Separator class="-my-3 w-[90%]! self-center h-[0.5px]!" />
         <Card.Footer class="flex flex-wrap gap-2">
             {#each skills as skill}
                 <Tooltip.Provider>
@@ -150,7 +150,7 @@
                             </div>
                         </Tooltip.Trigger>
 
-                        <Tooltip.Content class="z-[99]">
+                        <Tooltip.Content class="z-99">
                             <p class="capitalize">{skill.startsWith('!static-') ? skill.replace('!static-', '') : skill}</p>
                         </Tooltip.Content>
                     </Tooltip.Root>

@@ -14,7 +14,7 @@
 </svelte:head>
 
 <ModeWatcher />
-<div class="min-h-[100svh] flex flex-col overflow-x-hidden">
+<div class="min-h-svh flex flex-col overflow-x-hidden">
     <NavBar />
     <section class="w-full p-4 h-full flex grow">
         <div class="w-full max-w-full overflow-x-hidden">

@@ -63,7 +63,7 @@
                                     <contact.icon class="size-4" />
                                 </Button>
                             </Tooltip.Trigger>
-                            <Tooltip.Content class="z-[99]">
+                            <Tooltip.Content class="z-99">
                                 <p>{contact.name}</p>
                             </Tooltip.Content>
                         </Tooltip.Root>

@@ -16,7 +16,7 @@
             />
             <span class="sr-only">Toggle theme</span>
         </Tooltip.Trigger>
-        <Tooltip.Content class="z-[99]">
+        <Tooltip.Content class="z-99">
             <p>
                 {mode.current === "dark" ? "Light Mode" : "Dark Mode"}
             </p>
