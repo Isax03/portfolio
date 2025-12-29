@@ -9,6 +9,7 @@
         FolderOpen,
         GraduationCap,
         House,
+        Mail,
         Menu,
     } from "@lucide/svelte";
     import { mode } from "mode-watcher";
@@ -19,6 +20,7 @@
         { href: "/experience", label: "Experience", icon: BriefcaseBusiness },
         { href: "/projects", label: "Projects", icon: FolderOpen },
         { href: "/resume", label: "Resume", icon: FileUser },
+        { href: "/contacts", label: "Contact Me", icon: Mail },
     ];
 
     const currentPath = $derived(page.url.pathname);

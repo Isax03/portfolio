@@ -1,137 +1,109 @@
 <script lang="ts">
     import { Button } from "$lib/components/ui/button";
     import * as Card from "$lib/components/ui/card";
-    import * as Select from "$lib/components/ui/select";
     import {
         Download,
         FileText,
-        ExternalLink,
-        Eye,
-        Loader2
+        ExternalLink
     } from "@lucide/svelte";
 
-    let selected = $state<"Italian" | "English">("English");
-    let isIta = $derived(selected === "Italian");
-    let showPreview = $state(false);
-    let isLoading = $state(false);
+    const pdfUrlEn = "https://github.com/Isax03/curriculum-vitae/releases/download/CV-latest/Tonini_Isaia_CV_en.pdf";
+    const pdfUrlIt = "https://github.com/Isax03/curriculum-vitae/releases/download/CV-latest/Tonini_Isaia_CV_it.pdf";
 
-    const pdfUrl = $derived(
-        `https://github.com/Isax03/curriculum-vitae/releases/download/CV-latest/Tonini_Isaia_CV_${isIta ? "it" : "en"}.pdf`
-    );
+    const previewUrlEn = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrlEn)}&embedded=true`;
+    const previewUrlIt = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrlIt)}&embedded=true`;
 
-    // Google Docs Viewer per mostrare il PDF senza download
-    const previewUrl = $derived(
-        `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`
-    );
-
-    // Apre il PDF in una nuova tab usando blob URL
-    async function openInNewTab() {
-        isLoading = true;
-        try {
-            const response = await fetch(pdfUrl);
-            const blob = await response.blob();
-            const blobUrl = URL.createObjectURL(blob);
-            window.open(blobUrl, "_blank");
-        } catch (error) {
-            // Fallback: usa Google Docs Viewer
-            window.open(previewUrl, "_blank");
-        } finally {
-            isLoading = false;
-        }
+    function openInNewTab(isItalian: boolean) {
+        const previewUrl = isItalian ? previewUrlIt : previewUrlEn;
+        window.open(previewUrl, "_blank");
     }
 </script>
 
-<div class="flex flex-col gap-8 items-center justify-center py-8 px-4 min-h-[calc(100vh-10rem)]">
-    <!-- Download Section -->
-    <Card.Root class="w-full max-w-2xl border-accent/30">
-        <Card.Header class="text-center">
-            <Card.Title class="flex items-center justify-center gap-2 text-2xl">
-                <FileText class="size-6 text-accent" />
+<div class="flex flex-col w-full h-full items-center py-8 px-4">
+    <div class="max-w-4xl w-full">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold mb-4">
+                <FileText class="inline-block size-10 mr-3 text-accent" />
                 Resume
-            </Card.Title>
-            <Card.Description>
-                Download or preview my resume in your preferred language
-            </Card.Description>
-        </Card.Header>
-        <Card.Content class="flex flex-col items-center gap-6">
-            <!-- Language Selector -->
-            <div class="flex flex-col sm:flex-row gap-4 items-center">
-                <span class="text-sm text-muted-foreground">Select language:</span>
-                <Select.Root type="single" name="resumeLanguage" bind:value={selected}>
-                    <Select.Trigger class="w-40">
-                        {selected}
-                    </Select.Trigger>
-                    <Select.Content>
-                        <Select.Group>
-                            <Select.Label>Resume Language</Select.Label>
-                            <Select.Item value="Italian" label="Italian">
-                                Italian
-                            </Select.Item>
-                            <Select.Item value="English" label="English">
-                                English
-                            </Select.Item>
-                        </Select.Group>
-                    </Select.Content>
-                </Select.Root>
-            </div>
+            </h1>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Download or preview my resume in your preferred language.
+                Available in both English and Italian versions.
+            </p>
+        </div>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-3">
-                <Button
-                    size="lg"
-                    href={pdfUrl}
-                    class="text-base gap-2"
-                    download
-                >
-                    <Download class="size-5" />
-                    Download PDF
-                </Button>
-                <Button
-                    size="lg"
-                    variant="outline"
-                    class="text-base gap-2"
-                    onclick={() => (showPreview = !showPreview)}
-                >
-                    <Eye class="size-5" />
-                    {showPreview ? "Hide Preview" : "Show Preview"}
-                </Button>
-                <Button
-                    size="lg"
-                    variant="ghost"
-                    class="text-base gap-2"
-                    onclick={openInNewTab}
-                    disabled={isLoading}
-                >
-                    {#if isLoading}
-                        <Loader2 class="size-5 animate-spin" />
-                    {:else}
-                        <ExternalLink class="size-5" />
-                    {/if}
-                    Open in New Tab
-                </Button>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- English Resume Card -->
+            <Card.Root class="h-full transition-all duration-300 hover:border-accent hover:shadow-lg hover:shadow-accent/10">
+                <Card.Header class="flex flex-row items-center gap-4">
+                    <div class="p-3 rounded-lg bg-accent/10 text-accent font-bold text-xl">
+                        EN
+                    </div>
+                    <div class="flex-1">
+                        <Card.Title>English Version</Card.Title>
+                        <Card.Description>Resume in English</Card.Description>
+                    </div>
+                </Card.Header>
+                <Card.Content class="flex flex-col gap-3">
+                    <Button
+                        href={pdfUrlEn}
+                        class="w-full gap-2"
+                        download
+                    >
+                        <Download class="size-4" />
+                        Download PDF
+                    </Button>
+                    <Button
+                        variant="outline"
+                        class="w-full gap-2"
+                        onclick={() => openInNewTab(false)}
+                    >
+                        <ExternalLink class="size-4" />
+                        Open in New Tab
+                    </Button>
+                </Card.Content>
+            </Card.Root>
 
-            <!-- PDF Preview usando Google Docs Viewer -->
-            {#if showPreview}
-                <div class="w-full mt-4 rounded-lg overflow-hidden border bg-muted/20">
-                    <iframe
-                        src={previewUrl}
-                        title="Resume Preview"
-                        class="w-full h-150 lg:h-200"
-                    ></iframe>
-                </div>
-            {/if}
-        </Card.Content>
-    </Card.Root>
+            <!-- Italian Resume Card -->
+            <Card.Root class="h-full transition-all duration-300 hover:border-accent hover:shadow-lg hover:shadow-accent/10">
+                <Card.Header class="flex flex-row items-center gap-4">
+                    <div class="p-3 rounded-lg bg-accent/10 text-accent font-bold text-xl">
+                        IT
+                    </div>
+                    <div class="flex-1">
+                        <Card.Title>Italian Version</Card.Title>
+                        <Card.Description>Curriculum in Italiano</Card.Description>
+                    </div>
+                </Card.Header>
+                <Card.Content class="flex flex-col gap-3">
+                    <Button
+                        href={pdfUrlIt}
+                        class="w-full gap-2"
+                        download
+                    >
+                        <Download class="size-4" />
+                        Download PDF
+                    </Button>
+                    <Button
+                        variant="outline"
+                        class="w-full gap-2"
+                        onclick={() => openInNewTab(true)}
+                    >
+                        <ExternalLink class="size-4" />
+                        Open in New Tab
+                    </Button>
+                </Card.Content>
+            </Card.Root>
+        </div>
 
-    <!-- Additional Links -->
-    <div class="text-center text-sm text-muted-foreground max-w-2xl">
-        <p>
-            Want to know more? Check out my
-            <a href="/experience" class="text-accent hover:underline">experience</a>,
-            <a href="/education" class="text-accent hover:underline">education</a>, or
-            <a href="/projects" class="text-accent hover:underline">projects</a>
-            for detailed information.
-        </p>
+        <div class="mt-10 text-center text-sm text-muted-foreground">
+            <p>
+                Want to know more? Check out my
+                <a href="/experience" class="text-accent hover:underline">experience</a>,
+                <a href="/education" class="text-accent hover:underline">education</a>, or
+                <a href="/projects" class="text-accent hover:underline">projects</a>
+                for detailed information.
+            </p>
+        </div>
     </div>
 </div>

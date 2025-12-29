@@ -1,30 +1,6 @@
 <script>
     import { Button } from "$lib/components/ui/button";
-    import * as Tooltip from "$lib/components/ui/tooltip";
-    import { AtSign, Github, Instagram, Linkedin } from "@lucide/svelte";
-
-    const contacts = [
-        {
-            name: "GitHub",
-            href: "https://github.com/Isax03",
-            icon: Github,
-        },
-        {
-            name: "LinkedIn",
-            href: "https://www.linkedin.com/in/isaiatonini/",
-            icon: Linkedin,
-        },
-        {
-            name: "Gmail",
-            href: "mailto:isaia.tonini@gmail.com",
-            icon: AtSign,
-        },
-        {
-            name: "Instagram",
-            href: "https://www.instagram.com/isa.toni03/",
-            icon: Instagram,
-        },
-    ];
+    import { ArrowRight, Mail } from "@lucide/svelte";
 </script>
 
 <div class="flex flex-col w-full h-full items-center justify-center gap-4">
@@ -46,29 +22,16 @@
                 and <span class="dark:text-accent/50 text-accent">software development</span>.
             </p>
             <p class="text-sm max-w-xl text-muted-foreground mb-5">
-                Below you can find my contacts! For the rest, you can explore
-                the website or download my resume in the resume section.
+                Feel free to explore the website, download my resume, or get in touch with me!
             </p>
-            <div class="flex gap-2 items-center justify-center lg:justify-start">
-                {#each contacts as contact}
-                    <Tooltip.Provider>
-                        <Tooltip.Root>
-                            <Tooltip.Trigger>
-                                <Button
-                                    variant="outline"
-                                    size="icon"
-                                    href={contact.href}
-                                    target="_blank"
-                                >
-                                    <contact.icon class="size-4" />
-                                </Button>
-                            </Tooltip.Trigger>
-                            <Tooltip.Content class="z-99">
-                                <p>{contact.name}</p>
-                            </Tooltip.Content>
-                        </Tooltip.Root>
-                    </Tooltip.Provider>
-                {/each}
+            <div class="flex gap-3 items-center justify-center lg:justify-start flex-wrap">
+                <Button href="/contacts" class="gap-2">
+                    <Mail class="size-4" />
+                    Contact me
+                </Button>
+                <Button href="/resume" variant="outline" class="gap-2">
+                    View Resume
+                </Button>
             </div>
         </div>
     </div>
