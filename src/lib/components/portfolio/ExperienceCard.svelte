@@ -144,7 +144,16 @@
                                     <img
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{skill}/{skill}-original.svg"
                                         alt={skill}
-                                        class="size-6 rounded-lg"
+                                        class="size-6 rounded-sm"
+                                        onerror={(e) => {
+                                            const img = e.currentTarget as HTMLImageElement;
+                                            if (!img.src.includes('-plain.svg')) {
+                                                img.src = `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill}/${skill}-plain.svg`;
+                                                img.classList.remove('rounded-sm');
+                                                img.classList.remove('size-6');
+                                                img.classList.add('size-5');
+                                            }
+                                        }}
                                     />
                                 {/if}
                             </div>

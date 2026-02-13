@@ -9,9 +9,9 @@
             location: "Egna (BZ), Italia",
             startDate: new Date("2025-07-21"),
             summary:
-                "Development of internal web applications and software solutions for other departments within the company",
+            "Development of internal web applications and software solutions for other departments within the company",
             companyPic: "/companies/wurth.png",
-            skills: ["angular", "tailwindcss", "javascript", "typescript", "java", "spring", "oracle", "!static-flyway", "gitlab", "docker", "kubernetes", "argocd", "rancher"]
+            skills: ["angular", "tailwindcss", "typescript", "jest", "java", "spring", "thymeleaf", "graphql", "oracle", "elasticsearch", "!static-flyway", "docker", "kubernetes", "argocd", "rancher", "vault"]
         },
         {
             title: "Software Engineer Intern",
@@ -22,7 +22,7 @@
             summary:
                 "Learned about TDD and DDD methodologies while working on real-world projects. Gained experience in both front-end and back-end development.",
             companyPic: "/companies/cherry_chain.png",
-            skills: ["htmx", "tailwindcss", "javascript", "typescript", "kotlin", "!static-helidon", "postgresql", "!static-flyway", "docker", "gitlab"]
+            skills: ["htmx", "tailwindcss", "typescript", "kotlin", "!static-helidon", "postgresql", "!static-flyway", "docker", "gitlab"]
         },
     ];
 </script>
