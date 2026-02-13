@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
     import { Button } from "$lib/components/ui/button";
-    import { ArrowRight, Mail } from "@lucide/svelte";
+    import { Mail } from "@lucide/svelte";
 </script>
 
 <div class="flex flex-col w-full h-full items-center justify-center gap-4">
@@ -16,15 +16,22 @@
                 <span class="text-accent">Isaia</span> Tonini
             </h1>
             <p class="text-lg max-w-xl text-muted-foreground mb-3">
-                A <span class="dark:text-accent/50 text-accent">full-stack</span> developer and
-                technology enthusiast, passionate about
+                A <span class="dark:text-accent/50 text-accent">full-stack</span
+                >
+                developer and technology enthusiast, passionate about
                 <span class="dark:text-accent/50 text-accent">programming</span>
-                and <span class="dark:text-accent/50 text-accent">software development</span>.
+                and
+                <span class="dark:text-accent/50 text-accent"
+                    >software development</span
+                >.
             </p>
             <p class="text-sm max-w-xl text-muted-foreground mb-5">
-                Feel free to explore the website, download my resume, or get in touch with me!
+                Feel free to explore the website, download my resume, or get in
+                touch with me!
             </p>
-            <div class="flex gap-3 items-center justify-center lg:justify-start flex-wrap">
+            <div
+                class="flex gap-3 items-center justify-center lg:justify-start flex-wrap"
+            >
                 <Button href="/contacts" class="gap-2">
                     <Mail class="size-4" />
                     Contact me
@@ -40,7 +47,7 @@
 <style>
     .profile {
         transition: transform 0.3s ease;
-		box-shadow: 0 0 15px var(--accent);
+        box-shadow: 0 0 15px var(--accent);
     }
     .profile:hover {
         transform: scale(1.3);
