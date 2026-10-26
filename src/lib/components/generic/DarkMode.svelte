@@ -1,5 +1,5 @@
 <script lang="ts">
-    import * as Tooltip from "#lib/components/ui/tooltip/index.js";
+    import * as Tooltip from "$lib/components/ui/tooltip";
     import { Moon, Sun } from "@lucide/svelte";
     import { mode, toggleMode } from "mode-watcher";
     import { buttonVariants } from "../ui/button";

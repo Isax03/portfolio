@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ExperienceCard, { type ExperienceCardProps } from "#lib/components/portfolio/ExperienceCard.svelte";
+    import ExperienceCard, { type ExperienceCardProps } from "$lib/components/portfolio/ExperienceCard.svelte";
     import { Squircle } from "@lucide/svelte";
 
     const experiences: ExperienceCardProps[] = [

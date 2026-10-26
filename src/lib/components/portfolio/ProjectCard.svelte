@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Badge from "#lib/components/ui/badge/badge.svelte";
-    import * as Card from "#lib/components/ui/card/index.js";
+    import Badge from "$lib/components/ui/badge/badge.svelte";
+    import * as Card from "$lib/components/ui/card";
     import { ExternalLink } from "@lucide/svelte";
     import { mode } from "mode-watcher";
 

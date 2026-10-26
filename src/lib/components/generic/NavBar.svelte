@@ -1,8 +1,8 @@
 <script lang="ts">
     import { page } from "$app/state";
-    import { buttonVariants } from "#lib/components/ui/button/button.svelte";
-    import * as Sheet from "#lib/components/ui/sheet/index.js";
-    import * as Tooltip from "#lib/components/ui/tooltip/index.js";
+    import { buttonVariants } from "$lib/components/ui/button/button.svelte";
+    import * as Sheet from "$lib/components/ui/sheet";
+    import * as Tooltip from "$lib/components/ui/tooltip/index";
     import {
         BriefcaseBusiness,
         FileUser,

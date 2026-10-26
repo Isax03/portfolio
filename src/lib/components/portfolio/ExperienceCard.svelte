@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Badge from "#lib/components/ui/badge/badge.svelte";
-    import * as Card from "#lib/components/ui/card/index.js";
-    import * as Tooltip from "#lib/components/ui/tooltip/index.js";
+    import Badge from "$lib/components/ui/badge/badge.svelte";
+    import * as Card from "$lib/components/ui/card";
+    import * as Tooltip from "$lib/components/ui/tooltip";
     import { Building2, Calendar, Clock, MapPin } from "@lucide/svelte";
     import { buttonVariants } from "../ui/button/button.svelte";
     import Separator from "../ui/separator/separator.svelte";

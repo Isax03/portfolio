@@ -1,9 +1,9 @@
 <script lang="ts">
     import { page } from "$app/state";
-    import Badge from "#lib/components/ui/badge/badge.svelte";
-    import { Button } from "#lib/components/ui/button/index.js";
-    import * as Card from "#lib/components/ui/card/index.js";
-    import Separator from "#lib/components/ui/separator/separator.svelte";
+    import Badge from "$lib/components/ui/badge/badge.svelte";
+    import { Button } from "$lib/components/ui/button";
+    import * as Card from "$lib/components/ui/card";
+    import Separator from "$lib/components/ui/separator/separator.svelte";
     import {
         ArrowLeft,
         ExternalLink,

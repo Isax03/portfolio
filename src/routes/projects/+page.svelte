@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ProjectCard, { type ProjectCardProps } from "#lib/components/portfolio/ProjectCard.svelte";
+    import ProjectCard, { type ProjectCardProps } from "$lib/components/portfolio/ProjectCard.svelte";
 
     const projects: ProjectCardProps[] = [
         {
