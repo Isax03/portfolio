@@ -1,5 +1,5 @@
 <script lang="ts">
-    import EducationCard, { type EducationCardProps } from "$lib/components/portfolio/EducationCard.svelte";
+    import EducationCard, { type EducationCardProps } from "#lib/components/portfolio/EducationCard.svelte";
     import { Squircle } from "@lucide/svelte";
     import { mode } from "mode-watcher";
 

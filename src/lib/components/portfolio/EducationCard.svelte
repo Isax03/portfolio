@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Badge from "$lib/components/ui/badge/badge.svelte";
-    import * as Card from "$lib/components/ui/card";
+    import Badge from "#lib/components/ui/badge/badge.svelte";
+    import * as Card from "#lib/components/ui/card/index.js";
     import { University, Calendar, Clock, MapPin } from "@lucide/svelte";
     import Separator from "../ui/separator/separator.svelte";
 

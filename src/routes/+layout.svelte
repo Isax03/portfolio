@@ -1,5 +1,5 @@
 <script lang="ts">
-    import NavBar from "$lib/components/generic/NavBar.svelte";
+    import NavBar from "#lib/components/generic/NavBar.svelte";
     import { ModeWatcher } from "mode-watcher";
     import "../app.css";
 	import { page } from '$app/state';
