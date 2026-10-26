@@ -3,25 +3,23 @@
     import {
         ArrowUpRight,
         AtSign,
-        Github,
-        Instagram,
-        Linkedin,
         Mail,
     } from "@lucide/svelte";
+    import { mode } from "mode-watcher";
 
     const contacts = [
         {
             name: "GitHub",
             description: "Check out my projects and contributions",
             href: "https://github.com/Isax03",
-            icon: Github,
+            icon: "/icons/brands/github/",
             username: "@Isax03",
         },
         {
             name: "LinkedIn",
             description: "Connect with me professionally",
             href: "https://www.linkedin.com/in/isaiatonini/",
-            icon: Linkedin,
+            icon: "/icons/brands/linkedin/",
             username: "Isaia Tonini",
         },
         {
@@ -35,7 +33,7 @@
             name: "Instagram",
             description: "Follow me on Instagram",
             href: "https://www.instagram.com/isa.toni03/",
-            icon: Instagram,
+            icon: "/icons/brands/instagram/",
             username: "@isa.toni03",
         },
     ];
@@ -68,9 +66,20 @@
                     >
                         <Card.Header class="flex flex-row items-center gap-4">
                             <div
-                                class="p-3 rounded-lg bg-accent/10 text-accent"
+                                class="p-3 rounded-lg bg-accent/10"
                             >
-                                <contact.icon class="size-6" />
+                                {#if typeof contact.icon === "string"}
+                                    <img
+                                        src={contact.icon + (mode.current === "dark" ? "white.png" : "black.png")}
+                                        alt={contact.name + " icon"}
+                                        class="w-5 h-5"
+                                    />
+                                {:else}
+                                    <svelte:component
+                                        this={contact.icon}
+                                        class="size-5"
+                                    />
+                                {/if}
                             </div>
                             <div class="flex-1">
                                 <Card.Title class="flex items-center gap-2">

@@ -6,11 +6,11 @@
     import Separator from "$lib/components/ui/separator/separator.svelte";
     import {
         ArrowLeft,
-        Github,
         ExternalLink,
         Calendar,
         Users,
     } from "@lucide/svelte";
+    import { mode } from "mode-watcher";
 
     interface ProjectDetail {
         title: string;
@@ -182,7 +182,11 @@
                     rel="noopener noreferrer"
                 >
                     <Button variant="outline" class="flex items-center gap-2">
-                        <Github class="size-4" />
+                        <img
+                            src={"/icons/brands/github/" + (mode.current === "dark" ? "white.png" : "black.png")}
+                            alt="GitHub icon"
+                            class="w-5 h-5"
+                        />
                         View on GitHub
                     </Button>
                 </a>

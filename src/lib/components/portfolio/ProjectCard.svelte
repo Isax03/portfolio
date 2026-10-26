@@ -1,7 +1,8 @@
 <script lang="ts">
     import Badge from "$lib/components/ui/badge/badge.svelte";
     import * as Card from "$lib/components/ui/card";
-    import { Github, ExternalLink } from "@lucide/svelte";
+    import { ExternalLink } from "@lucide/svelte";
+    import { mode } from "mode-watcher";
 
     export interface ProjectCardProps {
         title: string;
@@ -44,7 +45,11 @@
                         class="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent transition-colors"
                         onclick={(e) => e.stopPropagation()}
                     >
-                        <Github class="size-4" />
+                        <img
+                            src={"/icons/brands/github/" + (mode.current === "dark" ? "white.png" : "black.png")}
+                            alt="GitHub icon"
+                            class="w-5 h-5"
+                        />
                         <span class="hidden sm:inline">GitHub</span>
                     </a>
                 </div>
